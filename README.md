@@ -1,4 +1,5 @@
 # Form
-## Little training project for Yandex.Practicum
+## Link: https://andrburl2.github.io/Form/
 
-Practice with regular expressions. Just launch the site and try to write somethin
+Little training project for Yandex.Practicum
+Practice with regular expressions. Just launch the site and try to write something
