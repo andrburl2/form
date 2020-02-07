@@ -111,8 +111,12 @@ html {
     border: none;
     text-align: center;
     cursor: pointer;
-	background-color: #ffdb4d;
+	background-color: #CCC;
 	color: #000;
+}
+
+.form__button_active {
+    background-color: #ffdb4d;
 }
 
 .form__input:valid:not(:placeholder-shown) {
