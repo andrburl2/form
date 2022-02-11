@@ -1,132 +1,175 @@
-@keyframes errors {
-    from {
-      margin-top: -5px;
-      opacity: .1; 
-    }
-  
-    to {
-      margin-top: 10px;
-      opacity: 1;
-    }
-}
-
-html {
-    font-family: Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-}
-
-.container {
-    max-width: 600px;
-    margin: auto;
+.body {
+  width: 100%;
+  margin: 0;
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .header {
-    max-width: 600px;
-    height: 80px;
-    margin: auto;
-    display: flex;
-    align-items: center;
+  max-width: 1024px;
+  width: 100%;
+  height: 60px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
 }
 
 .header__logo {
-    width: 150px;
+  width: 150px;
 }
 
 .header__logo-sub {
-    margin-left: 10px;
-    margin-bottom: 25px;
-    font-size: 0.6em;
+  margin: 0 0 20px 5px;
+  font-size: 12px;
+}
+
+.main {
+  max-width: 1024px;
+  width: 100%;
+  margin: auto;
+}
+
+.cover {
+  height: 135px;
+  margin: 0 0 30px;
+  display: flex;
+  align-items: center;
+}
+
+.cover__image {
+  width: 110px;
+  height: 135px;
+  margin: 0 30px 0 0;
+  object-fit: cover;
+  border-radius: 50%;
+}
+  
+.cover__title {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1;
 }
 
 .form {
-    max-width: 600px;
-    margin: auto;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.block {
-    margin-top: 60px;
-    border-radius: 3px;
-  }
-
-.cover {
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
-
-.cover__image {
-    width: 110px;
-    min-width: 110px;
-    height: 110px;
-    background-image: url(https://pictures.s3.yandex.net/frontend-developer/dom_bom/cover.jpg);
-    background-size: cover;
-    background-position: center;
-    border-radius: 50%;
-}
-  
-.cover__heading {
-    margin-left: 30px;
-    font-size: 2.5em;
-    line-height: 1;
+.form__title {
+  margin: 0 0 20px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1;
 }
 
 .form__field {
-	margin-bottom: 36px;
-}
-
-.form__fieldset {
-    border: none;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+	margin: 0 0 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form__error {
-    display: none;
-    position: absolute;
-    margin-top: 10px;
+  margin: -5px 0 0;
 	color: #df4b41;
-	text-align: left;
 	font-size: 14px;
-    animation: errors .1s ease-in-out;
+  opacity: 0;
+  transition: .5s ease-in-out;
 }
 
 .form__input {
-    display: block;
-    width: 100%;
-    border: none;
-	border-radius: 2px;
+  width: 100%;
+  height: 40px;
+  padding: 10px 0 10px 10px;
+  background: transparent;
+  border: none;
 	border-bottom: 2px solid #ccc;
-	padding: 10px 0 10px 10px;
-    box-sizing: border-box;
-    font-size: 16px;
+  box-sizing: border-box;
+  font-size: 16px;
+  outline: none;
+}
+
+.form__input:hover {
+  border-bottom-color: #000;
+}
+
+.form__input:focus-visible, .form__input:focus {
+  border-radius: 5px;
+  border: 2px solid #000;
 }
 
 .form__button {
-    width: 200px;
-    height: 48px;
-    font-weight: bold;
-    font-size: 14px;
-    border-radius: 3px;
-    border: none;
-    text-align: center;
-    cursor: pointer;
-	background-color: #CCC;
+  width: 200px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
 	color: #000;
+  cursor: default;
 }
 
 .form__button_active {
-    background-color: #ffdb4d;
+  cursor: pointer;
+  background-color: #ffdb4d;
 }
 
 .form__input:valid:not(:placeholder-shown) {
 	border-color: #ffdb4d;
 }
 
-.form__input:invalid:not(:placeholder-shown) {
+.form__input:focus-visible:invalid:not(:placeholder-shown) {
 	border-color: #df4b41;
 }
 
 .form__input:invalid:not(:placeholder-shown) + .form__error {
-	display: block;
+	margin: 10px 0 0;
+  opacity: 1;
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    margin: 0 0 20px;
+  }
+
+  .header__logo {
+    width: 130px;
+  }
+
+  .header__logo-sub {
+    font-size: 10px;
+  }
+
+  .cover {
+    height: auto;
+    flex-direction: column-reverse;
+  }
+
+  .cover__image {
+    margin: 15px 0 0;
+  }
+
+  .form {
+    align-items: center;
+  }
+
+  .form__field {
+    margin: 0 0 15px;
+  }
+
+  .form__input {
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .form__error {
+    font-size: 12px;
+  }
 }
